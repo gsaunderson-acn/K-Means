@@ -67,7 +67,7 @@ if __name__=='__main__':
     elif model == 'daal_lm_training':
         from lm_all import daal_lm_training
         temp_df = pd.DataFrame()
-        batch_size = 1000  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = daal_lm_training.run_inference(batch_size)
@@ -93,7 +93,7 @@ if __name__=='__main__':
     elif model == 'daal_rf_training':
         from rf_all import daal_rf_training
         temp_df = pd.DataFrame()
-        batch_size = 1000  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = daal_rf_training.run_inference(batch_size)
@@ -171,7 +171,7 @@ if __name__=='__main__':
     elif model == 'daal_logit_training':
         from logit_all import daal_logit_training
         temp_df = pd.DataFrame()
-        batch_size = 1000  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = daal_logit_training.run_inference(batch_size)
@@ -210,7 +210,7 @@ if __name__=='__main__':
     elif model == 'logit_patch_training':
         from logit_all import logit_patch_training
         temp_df = pd.DataFrame()
-        batch_size = 100  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = logit_patch_training.run_inference(batch_size)
@@ -224,7 +224,7 @@ if __name__=='__main__':
     elif model == 'logit_training':
         from logit_all import logit_training
         temp_df = pd.DataFrame()
-        batch_size = 100  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = logit_training.run_inference(batch_size)
@@ -315,7 +315,7 @@ if __name__=='__main__':
     elif model == 'daal_kmeans_training':
         from kmeans_all import daal_kmeans_training
         temp_df = pd.DataFrame()
-        batch_size = 100  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = daal_kmeans_training.run_inference(batch_size)
@@ -328,7 +328,7 @@ if __name__=='__main__':
     elif model == 'kmeans_training':
         from kmeans_all import kmeans_training
         temp_df = pd.DataFrame()
-        batch_size = 100  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans_training.run_inference(batch_size)
@@ -341,7 +341,7 @@ if __name__=='__main__':
     elif model == 'kmeans_patch_training':
         from kmeans_all import kmeans_patch_training
         temp_df = pd.DataFrame()
-        batch_size = 100  # Start with a single observation
+        batch_size = 1  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans_patch_training.run_inference(batch_size)
