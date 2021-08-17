@@ -26,10 +26,12 @@ def run_inference(num_observations:int = 1000):
     for _ in range(NUM_LOOPS):
         
         start_time = timer()
-    
-        initrain_algo = d4p.kmeans_init(nClusters = 5, fptype = "float", method="randomDense")
-        # compute initial centroids
-        initrain_result = initrain_algo.compute(test_df)
+        
+        init_alg = d4p.kmeans_init(nClusters = 5, fptype = "float", method = "randomDense")
+        centroids = init_alg.compute(test_df).centroids
+        alg = d4p.kmeans(nClusters = 5, maxIterations = 100, fptype = "float", accuracyThreshold = 0,
+                         assignFlag = False)
+        result = alg.compute(test_df, centroids)
 
         end_time = timer()
 
@@ -43,11 +45,8 @@ def run_inference(num_observations:int = 1000):
     print(num_observations, ", ", return_elem)
     return return_elem
 
-#         initrain_algo = d4p.kmeans_init(nClusters = 5, fptype = "float", method="randomDense")
-#         # compute initial centroids
-#         initrain_centroids = initrain_algo.compute(test_df).centroids
 
-#         # configure kmeans main object: we also request the cluster assignments
-#         algo = d4p.kmeans(nClusters = 5, maxIterations = 100, assignFlag=True)
-#         # compute the clusters/centroids
-#         result = algo.compute(test_df, initrain_centroids)
+
+# initrain_algo = d4p.kmeans_init(nClusters = 5, fptype = "float", method="randomDense")
+#         # compute initial centroids
+#         initrain_result = initrain_algo.compute(test_df)

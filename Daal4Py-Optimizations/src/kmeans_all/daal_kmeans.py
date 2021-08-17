@@ -12,9 +12,8 @@ NUM_LOOPS = 100
 
 print("Computing for Kmeans with Daal")
 
-initrain_algo = d4p.kmeans_init(nClusters = 5, fptype = "float", method="randomDense")
-# compute initial centroids
-initrain_result = initrain_algo.compute(common.X_dfc)
+init_alg = d4p.kmeans_init(nClusters = 5, fptype = "float", method = "randomDense")
+centroids = init_alg.compute(common.X_dfc).centroids
 
 def run_inference(num_observations:int = 1000):
     """Run xgboost for specified number of observations"""
@@ -30,10 +29,9 @@ def run_inference(num_observations:int = 1000):
         
         start_time = timer()
         
-        # configure kmeans main object: we also request the cluster assignments
-#         algo = d4p.kmeans(nClusters = 5, maxIterations = 100, assignFlag=True)
-        # compute the clusters/centroids
-        result = initrain_algo.compute(test_df, initrain_result.centroids)
+        alg = d4p.kmeans(nClusters = 5, maxIterations = 0, fptype = "float", accuracyThreshold = 0,
+                         assignFlag = False)
+        result = alg.compute(test_df, centroids)
         
         end_time = timer()
 
@@ -46,3 +44,12 @@ def run_inference(num_observations:int = 1000):
     return_elem = common.calculate_stats(inference_times)
     print(num_observations, ", ", return_elem)
     return return_elem
+
+
+#         init_alg = d4p.kmeans_init(nClusters = 5, fptype = "float",
+#                                    method = "randomDense")
+#         centroids = init_alg.compute(test_df).centroids
+#         alg = d4p.kmeans(nClusters = 5, maxIterations = 100,
+#                          fptype = "float", accuracyThreshold = 0,
+#                          assignFlag = False)
+#         result = alg.compute(test_df, centroids)
