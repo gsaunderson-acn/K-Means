@@ -44,12 +44,3 @@ def run_inference(num_observations:int = 1000):
     return_elem = common.calculate_stats(inference_times)
     print(num_observations, ", ", return_elem)
     return return_elem
-
-
-#         init_alg = d4p.kmeans_init(nClusters = 5, fptype = "float",
-#                                    method = "randomDense")
-#         centroids = init_alg.compute(test_df).centroids
-#         alg = d4p.kmeans(nClusters = 5, maxIterations = 100,
-#                          fptype = "float", accuracyThreshold = 0,
-#                          assignFlag = False)
-#         result = alg.compute(test_df, centroids)
