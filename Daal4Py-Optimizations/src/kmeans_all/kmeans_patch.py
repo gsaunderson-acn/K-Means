@@ -54,3 +54,5 @@ def run_inference(num_observations:int = 1000):
     return_elem = common.calculate_stats(inference_times)
     print(num_observations, ", ", return_elem)
     return return_elem
+
+

@@ -389,6 +389,84 @@ if __name__=='__main__':
             batch_size *= 10
         print("__________________Summary_______________________")
         print(temp_df) 
+        
+    elif model == 'kmeans_batches':
+        from kmeans_all import kmeans_batches
+        temp_df = pd.DataFrame()
+        batch_size = 1  # Start with a single observation
+        # logging.info(common.STATS)
+        while batch_size <= args.observations:
+            temp = kmeans_batches.run_inference(batch_size)
+            temp["Batch_Size"] = batch_size
+            temp_df = temp_df.append(temp)
+            batch_size *= 10
+        print("__________________Summary_______________________")
+        print(temp_df)
+        
+    elif model == 'kmeans_patch_batches':
+        from kmeans_all import kmeans_patch_batches
+        temp_df = pd.DataFrame()
+        batch_size = 1  # Start with a single observation
+        # logging.info(common.STATS)
+        while batch_size <= args.observations:
+            temp = kmeans_patch_batches.run_inference(batch_size)
+            temp["Batch_Size"] = batch_size
+            temp_df = temp_df.append(temp)
+            batch_size *= 10
+        print("__________________Summary_______________________")
+        print(temp_df)
+        
+    elif model == 'daal_kmeans_training_batches':
+        from kmeans_all import daal_kmeans_training_batches
+        temp_df = pd.DataFrame()
+        batch_size = 100  # Start with a single observation
+        # logging.info(common.STATS)
+        while batch_size <= args.observations:
+            temp = daal_kmeans_training_batches.run_inference(batch_size)
+            temp["Batch_Size"] = batch_size
+            temp_df = temp_df.append(temp)
+            batch_size *= 10
+        print("__________________Summary_______________________")
+        print(temp_df)
+        
+    elif model == 'kmeans_training_batches':
+        from kmeans_all import kmeans_training_batches
+        temp_df = pd.DataFrame()
+        batch_size = 100  # Start with a single observation
+        # logging.info(common.STATS)
+        while batch_size <= args.observations:
+            temp = kmeans_training_batches.run_inference(batch_size)
+            temp["Batch_Size"] = batch_size
+            temp_df = temp_df.append(temp)
+            batch_size *= 10
+        print("__________________Summary_______________________")
+        print(temp_df)
+        
+    elif model == 'kmeans_patch_training_batches':
+        from kmeans_all import kmeans_patch_training_batches
+        temp_df = pd.DataFrame()
+        batch_size = 100  # Start with a single observation
+        # logging.info(common.STATS)
+        while batch_size <= args.observations:
+            temp = kmeans_patch_training_batches.run_inference(batch_size)
+            temp["Batch_Size"] = batch_size
+            temp_df = temp_df.append(temp)
+            batch_size *= 10
+        print("__________________Summary_______________________")
+        print(temp_df)
+        
+    elif model == 'daal_kmeans_batches':
+        from kmeans_all import daal_kmeans_batches
+        temp_df = pd.DataFrame()
+        batch_size = 1  # Start with a single observation
+        # logging.info(common.STATS)
+        while batch_size <= args.observations:
+            temp = daal_kmeans_batches.run_inference(batch_size)
+            temp["Batch_Size"] = batch_size
+            temp_df = temp_df.append(temp)
+            batch_size *= 10
+        print("__________________Summary_______________________")
+        print(temp_df)
      
     else:
         print(f"Could not find benchmark for {model}")
