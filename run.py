@@ -289,13 +289,13 @@ if __name__=='__main__':
     elif model == 'kmeans':
         from kmeans_all import kmeans
         temp_df = pd.DataFrame()
-        batch_size = 1000000  # Start with a single observation
+        batch_size = 0  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans.run_inference(batch_size)
             temp["No_of_Observation"] = batch_size
             temp_df = temp_df.append(temp)
-            batch_size *= 5
+            batch_size += 5000000
         print("__________________Summary_______________________")
         print(temp_df)
         
