@@ -8,7 +8,7 @@ import pandas as pd
 
 import common
 d4p.daalinit()
-NUM_LOOPS = 1
+NUM_LOOPS = 100
 
 print("Computing for Kmeans with Daal")
 
