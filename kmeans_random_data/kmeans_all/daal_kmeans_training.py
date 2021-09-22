@@ -8,7 +8,7 @@ import pandas as pd
 import common
 
 d4p.daalinit()
-NUM_LOOPS = 10
+NUM_LOOPS = 5
 
 print("Computing for Kmeans with Daal")
 
@@ -31,15 +31,15 @@ def run_inference(num_observations:int = 1000):
         centroids = init_alg.compute(test_df).centroids
         alg = d4p.kmeans(nClusters = 10, maxIterations = 50, fptype = "float", accuracyThreshold = 0,
                          assignFlag = False)
-        result = alg.compute(test_df, centroids)
+        alg.compute(test_df, centroids)
 
         end_time = timer()
 
         total_time = end_time - start_time
         run_times.append(total_time*10e3)
 
-        inference_time = total_time*(10e6)/num_rows
-        inference_times.append(inference_time)
+        # inference_time = total_time*(10e6)/num_rows
+        inference_times.append(total_time*(10e6)/num_rows)
 
     return_elem = common.calculate_stats(inference_times)
     print(num_observations, ", ", return_elem)
