@@ -389,9 +389,9 @@ if __name__=='__main__':
             batch_size *= 10
         print("__________________Summary_______________________")
         print(temp_df) 
-        
+
     elif model == 'kmeans_training_cuml':
-        from kmeans_all import kmeans_training
+        from kmeans_all import kmeans_training_cuml
         temp_df = pd.DataFrame()
         batch_size = 1000000  # Start with a single observation
         # logging.info(common.STATS)
@@ -404,7 +404,7 @@ if __name__=='__main__':
         print(temp_df)
 
     elif model == 'kmeans_cuml':
-        from kmeans_all import kmeans
+        from kmeans_all import kmeans_cuml
         temp_df = pd.DataFrame()
         batch_size = 1000000  # Start with a single observation
         # logging.info(common.STATS)
