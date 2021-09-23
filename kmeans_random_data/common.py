@@ -14,12 +14,7 @@ STATS = '#, median, mean, std_dev, min_time, max_time, quantile_10, quantile_90'
 
 def get_test_data_df(X,size: int = 1):
     """Generates a test dataset of the specified size""" 
-    num_rows = len(X)
-    test_df = X.copy()
-    while num_rows < size:
-        test_df = test_df.append(test_df)
-        num_rows = len(test_df)
-
+    
     return test_df[:size].reset_index(drop = True)
 
 def calculate_stats(time_list):
