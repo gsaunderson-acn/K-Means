@@ -15,7 +15,7 @@ STATS = '#, median, mean, std_dev, min_time, max_time, quantile_10, quantile_90'
 def get_test_data_df(X,size: int = 1):
     """Generates a test dataset of the specified size""" 
     
-    return test_df[:size].reset_index(drop = True)
+    return X[:size].reset_index(drop = True)
 
 def calculate_stats(time_list):
     """Calculate mean and standard deviation of a list"""
