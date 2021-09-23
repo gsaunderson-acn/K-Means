@@ -1,18 +1,30 @@
 from timeit import default_timer as timer
 
+import xgboost as xgb
+from sklearn.metrics import mean_squared_error
 import daal4py as d4p
 import numpy as np
 import pandas as pd
-
 import common
 
-d4p.daalinit()
+
+
+import daal4py.sklearn
+daal4py.sklearn.patch_sklearn()
+from sklearn.cluster import KMeans
+
+kmeans_kwargs = {
+   "init": "random",
+   "n_init": 10,
+   "max_iter": 50,
+   "random_state": 42,
+}
+
 NUM_LOOPS = 10
 
-print("Computing for Kmeans with Daal")
+print("Computing for KMeans Clustering training with Daal patch")
 
-init_alg = d4p.kmeans_init(nClusters = 10, fptype = "float", method = "randomDense")
-centroids = init_alg.compute(common.X_df).centroids
+
 
 def run_inference(num_observations:int = 1000):
     """Run xgboost for specified number of observations"""
@@ -27,11 +39,10 @@ def run_inference(num_observations:int = 1000):
     for _ in range(NUM_LOOPS):
         
         start_time = timer()
-        
-        alg = d4p.kmeans(nClusters = 10, maxIterations = 0, fptype = "float", accuracyThreshold = 0,
-                         assignFlag = False)
-        result = alg.compute(test_df, centroids)
-        
+
+        cluster = KMeans(n_clusters=5, **kmeans_kwargs)
+        cluster.fit(test_df)
+        #predictor.compute(data, MODEL)
         end_time = timer()
 
         total_time = end_time - start_time
