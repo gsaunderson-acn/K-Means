@@ -1,6 +1,5 @@
 from timeit import default_timer as timer
 
-from cuml import KMeans
 from cuml.cluster import KMeans
 import numpy as np
 import pandas as pd
