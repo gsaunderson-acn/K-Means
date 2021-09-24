@@ -393,7 +393,7 @@ if __name__=='__main__':
     elif model == 'kmeans_training_cuml':
         from kmeans_all import kmeans_training_cuml
         temp_df = pd.DataFrame()
-        batch_size = 1000000  # Start with a single observation
+        batch_size = 100000  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans_training_cuml.run_inference(batch_size)
@@ -406,7 +406,7 @@ if __name__=='__main__':
     elif model == 'kmeans_cuml':
         from kmeans_all import kmeans_cuml
         temp_df = pd.DataFrame()
-        batch_size = 1000000  # Start with a single observation
+        batch_size = 100000  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans_cuml.run_inference(batch_size)
