@@ -15,7 +15,7 @@ kmeans_kwargs = {
    "random_state": 42,
 }
 
-NUM_LOOPS = 10
+NUM_LOOPS = 100
 
 print("Computing for KMeans Clustering Training without Daal")
 
