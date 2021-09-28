@@ -16,7 +16,7 @@ from sklearn.cluster import KMeans
 kmeans_kwargs = {
    "init": "random",
    "n_init": 10,
-   "max_iter": 50,
+   "max_iter": 100,
    "random_state": 42,
 }
 
