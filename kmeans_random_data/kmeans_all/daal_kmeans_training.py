@@ -27,9 +27,9 @@ def run_inference(num_observations:int = 1000):
         
         start_time = timer()
         
-        init_alg = d4p.kmeans_init(nClusters = 10, fptype = "float", method = "randomDense")
+        init_alg = d4p.kmeans_init(nClusters = 5, fptype = "float", method = "randomDense")
         centroids = init_alg.compute(test_df).centroids
-        alg = d4p.kmeans(nClusters = 10, maxIterations = 50, fptype = "float", accuracyThreshold = 0,
+        alg = d4p.kmeans(nClusters = 5, maxIterations = 50, fptype = "float", accuracyThreshold = 0,
                          assignFlag = False)
         alg.compute(test_df, centroids)
 

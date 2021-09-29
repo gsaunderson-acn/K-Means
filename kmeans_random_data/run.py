@@ -315,7 +315,7 @@ if __name__=='__main__':
     elif model == 'daal_kmeans_training':
         from kmeans_all import daal_kmeans_training
         temp_df = pd.DataFrame()
-        batch_size = 1000000  # Start with a single observation
+        batch_size = 4000000  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = daal_kmeans_training.run_inference(batch_size)
