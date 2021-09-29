@@ -11,7 +11,7 @@ NUM_LOOPS = 10
 
 print("Computing for Kmeans with Daal")
 
-init_alg = d4p.kmeans_init(nClusters = 10, fptype = "float", method = "randomDense")
+init_alg = d4p.kmeans_init(nClusters = 5, fptype = "float", method = "randomDense")
 centroids = init_alg.compute(common.X_df).centroids
 
 def run_inference(num_observations:int = 1000):
@@ -28,7 +28,7 @@ def run_inference(num_observations:int = 1000):
         
         start_time = timer()
         
-        alg = d4p.kmeans(nClusters = 10, maxIterations = 0, fptype = "float", accuracyThreshold = 0,
+        alg = d4p.kmeans(nClusters = 5, maxIterations = 0, fptype = "float", accuracyThreshold = 0,
                          assignFlag = False)
         alg.compute(test_df, centroids)
         
