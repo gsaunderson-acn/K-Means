@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 X, y = make_blobs(n_samples = 5 * 10**6, n_features = 20,
-                  centers = 5, cluster_std = 0.2,
+                  centers = 10, cluster_std = 0.2,
                   center_box = (-10.0, 10.0), random_state = 777)
 
 X_df = pd.DataFrame(X)
