@@ -8,7 +8,7 @@ import common
 kmeans_kwargs = {
    "init": "random",
    "n_init": 10,
-   "max_iter": 100,
+   "max_iter": 50,
    "random_state": 42,
 }
 
