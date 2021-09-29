@@ -20,7 +20,7 @@ kmeans_kwargs = {
    "random_state": 42,
 }
 
-NUM_LOOPS = 100
+NUM_LOOPS = 10
 
 print("Computing for KMeans Clustering training with Daal patch")
 
@@ -40,7 +40,7 @@ def run_inference(num_observations:int = 1000):
         
         start_time = timer()
 
-        cluster = KMeans(n_clusters=5, **kmeans_kwargs)
+        cluster = KMeans(n_clusters=10, **kmeans_kwargs)
         cluster.fit(test_df)
         #predictor.compute(data, MODEL)
         end_time = timer()
