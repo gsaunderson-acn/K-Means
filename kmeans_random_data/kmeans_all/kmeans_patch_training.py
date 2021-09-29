@@ -20,7 +20,7 @@ kmeans_kwargs = {
    "random_state": 42,
 }
 
-NUM_LOOPS = 100
+NUM_LOOPS = 10
 
 print("Computing for KMeans Clustering training with Daal patch")
 
