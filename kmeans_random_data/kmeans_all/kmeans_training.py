@@ -16,7 +16,7 @@ NUM_LOOPS = 10
 
 print("Computing for KMeans Clustering Training without Daal")
 
-cluster = KMeans(n_clusters=10, **kmeans_kwargs)
+cluster = KMeans(n_clusters=5, **kmeans_kwargs)
 cluster.fit(common.X_df)
 
 def run_inference(num_observations:int = 1000):
@@ -33,7 +33,7 @@ def run_inference(num_observations:int = 1000):
         
         start_time = timer()
 
-        cluster = KMeans(n_clusters=10, **kmeans_kwargs)
+        cluster = KMeans(n_clusters=5, **kmeans_kwargs)
         cluster.fit(test_df)
         
         end_time = timer()
