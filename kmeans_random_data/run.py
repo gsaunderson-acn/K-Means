@@ -289,7 +289,7 @@ if __name__=='__main__':
     elif model == 'kmeans':
         from kmeans_all import kmeans
         temp_df = pd.DataFrame()
-        batch_size = 4000000  # Start with a single observation
+        batch_size = 5000000  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans.run_inference(batch_size)
@@ -302,7 +302,7 @@ if __name__=='__main__':
     elif model == 'kmeans_patch':
         from kmeans_all import kmeans_patch
         temp_df = pd.DataFrame()
-        batch_size = 4000000  # Start with a single observation
+        batch_size = 5000000  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = kmeans_patch.run_inference(batch_size)
@@ -354,7 +354,7 @@ if __name__=='__main__':
     elif model == 'daal_kmeans':
         from kmeans_all import daal_kmeans
         temp_df = pd.DataFrame()
-        batch_size = 4000000  # Start with a single observation
+        batch_size = 5000000  # Start with a single observation
         # logging.info(common.STATS)
         while batch_size <= args.observations:
             temp = daal_kmeans.run_inference(batch_size)
